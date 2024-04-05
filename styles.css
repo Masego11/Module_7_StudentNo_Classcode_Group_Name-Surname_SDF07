@@ -1,5 +1,6 @@
 /* Base Styles */
 
+
 :root {
     font-size: 10px;
 }
@@ -21,3 +22,142 @@ body {
 img {
     display: block;
 }
+
+.container {
+    max-width: 1224px;
+    width: 90%;
+    margin: auto;
+    padding: 40px 0;
+}
+
+
+
+/* Profile Section */
+
+.profile {
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;    /* styling for the profile section, setting up a grid layout with columns wuth three rows and items aligning vertically in the center */
+    grid-template-rows: auto auto auto;
+    grid-column-gap: 48px;
+    align-items: center;
+}
+
+.profile-image{
+    width: calc(33% - 16px);
+    display: flex;
+    justify-content: center;  /* styling for the profile image class and centering the image */
+    align-items: center;
+    float: right;
+    margin-right: 16px;
+    margin-bottom: 20px;
+}
+
+.profile-user-settings,
+.profile-stats,              /* shared styling for profile-user-settings, stats and bio */
+.profile-bio {                
+   width: calc(100% - 32px);
+}
+
+
+.profile-user-settings {
+    grid-row: 1;          /* styling for profile user settings class */
+    grid-column: 2;
+    cursor: pointer;
+
+}
+
+.profile-edit-btn,
+.profile-settings-btn {
+    font-size: 10px;
+    border: 1px solid black;  /* styling for buttons within the profile settings class */ 
+    margin-left: 16px;
+    cursor: pointer;
+
+}
+
+.profile-stats {
+    grid-row: 2;
+    grid-column: 2;
+}
+                               /* styling for profile stats class */
+.profile-stats li {
+    display: inline-block;   
+    font-size: 11px;
+    line-height: 2;      
+    margin-right: 15px;
+    cursor: pointer;   
+}
+
+.profile-bio {
+    font-size: 12px;
+    font-weight: normal;  /* styling for profile bio class */
+    margin-top: 15px;
+    grid-row: 3;
+    grid-column: 2;
+}
+.profile-real-name,
+.profile-stat-count { 
+    font-weight: bold;
+
+}    
+
+/* Gallery section */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;     /* styling for gallery section, setting flexbox layout with wrapping and spacing between items */
+    gap: 30px;
+    justify-content: space-between;
+
+}
+
+.gallery-item {
+    flex: 1 1 calc(33.33% - 20px);  /* flex property and margin botton setting for each gallery item */
+    margin-bottom: 30px;    
+}
+
+.gallery-item:hover .gallery-image{
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+    transform: scale(1.02);            /* styling for gallery-image when hovered on */
+    transition: transform 0.5s ease;
+    cursor: pointer;
+
+}
+
+.gallery-item:hover .gallery-item-info {
+    opacity: 1;
+    transition: opacity 0.5s ease;   /* styling for gallery-item-info when hovered on */
+    cursor: pointer;
+
+}
+
+.gallery-image {
+    width:100%;
+    border-radius: 5px;  /* styling for gallery image class */
+    object-fit: cover;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid darkolivegreen;
+    border-bottom-color: transparent;      /* styling for loader property, setting dimensions and border properties */
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: loader 1000ms linear infinite;
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg); /* for loader animation to rotate 360deg */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+    }
+}
+
